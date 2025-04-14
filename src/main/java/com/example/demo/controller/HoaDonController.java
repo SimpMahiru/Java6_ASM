@@ -36,7 +36,7 @@ public class HoaDonController {
         return ResponseEntity.ok(created);
     }
 
-    // Cập nhật hóa đơn
+//     Cập nhật hóa đơn
     @PutMapping("/{id}")
     public ResponseEntity<HoaDon> updateHoaDon(@PathVariable Integer id, @RequestBody HoaDon hoaDon) {
         Optional<HoaDon> updated = hoaDonService.updateHoaDon(id, hoaDon);

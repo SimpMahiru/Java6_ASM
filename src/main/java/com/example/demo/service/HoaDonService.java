@@ -29,17 +29,12 @@ public class HoaDonService {
         return hoaDonRepository.findById(id);
     }
 
-    public HoaDon updateHoaDon(Integer id, HoaDon hoaDon) {
+    public Optional<HoaDon> updateHoaDon(Integer id, HoaDon hoaDon) {
         if (hoaDonRepository.existsById(id)) {
             hoaDon.setId(id);
-
-            if (hoaDon.getHoaDonChiTiet() != null) {
-                hoaDon.getHoaDonChiTiet().forEach(ct -> ct.setHoaDon(hoaDon));
-            }
-
-            return hoaDonRepository.save(hoaDon);
+            return Optional.of(hoaDonRepository.save(hoaDon));
         }
-        return null;
+        return Optional.empty();
     }
 
     public boolean deleteHoaDon(Integer id) {
