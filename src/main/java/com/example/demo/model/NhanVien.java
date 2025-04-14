@@ -26,7 +26,7 @@ public class NhanVien {
 
     @ManyToOne
     @JoinColumn(name = "id_dia_chi", referencedColumnName = "id")
-    private dia_chi diaChi;
+    private DiaChi diaChi;
 
     @Column(name="ngay_thang_nam_sinh")
     private String ngaySinh;
